@@ -1,0 +1,51 @@
+class shop:
+    def __init__(self,name,price,quantity):
+
+        self.name="potato"
+        self.price=price
+        self.quantity=quantity
+        
+
+    def price_per_unit(self):
+        return self.price/self.quantity
+
+    def price_increase(self,ammount):
+        self.price+=ammount
+
+item_1=shop("potato",12,3)
+item_2=shop("flour",15,4)
+
+user_value=None
+
+while user_value!="quit":
+    user_value=input(f"1.Increse value\n2.Show data about an item\n")
+    if user_value=="1":
+        item_no=input("which item: ")
+        if item_no=="1":
+            item=item_1
+        else:
+            item=item_2        
+        extra_price=int(input("How much to increase: "))
+        item.price_increase(extra_price)
+    elif user_value=="2":
+        item_no=input("Which item \n\t-item_1\n\t-item_2\n")
+        if item_no.lower()=="item_1" or item_no=="1":
+            value_of_item=input("Which detail\n-name\n-price\n-quantity\n-price_per_unit\n")
+            if value_of_item=="name":
+                print(item_1.name)
+            elif value_of_item.lower()=="price":
+                print(item_1.price)
+            elif value_of_item.lower()=="quantity":
+                print(item_1.quantity)
+            elif value_of_item.lower()=="per unit":
+                print(item_1.price_per_unit())
+        elif item_no.lower()=="item_2" or item_no=="2":
+            value_of_item=input("Which detail\n-name\n-price\n-quantity\n-price per unit\n")
+            if value_of_item=="name":
+                print(item_2.name)
+            elif value_of_item.lower()=="price":
+                print(item_2.price)
+            elif value_of_item.lower()=="quantity":
+                print(item_2.quantity)
+            elif value_of_item.lower()=="price per unit":
+                print(item_2.price_per_unit())
